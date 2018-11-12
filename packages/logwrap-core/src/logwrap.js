@@ -11,12 +11,15 @@ import type {
   IPipe,
   ILogwrap,
   ILogwrapOpts,
-  INormalizedPipeline
+  INormalizedPipeline,
+  ILogMethod
 } from './interface'
 
 export const SEVERITY_ORDER = ['error', 'warn', 'info', 'debug', 'trace']
 
 export default class Logwrap implements ILogwrap {
+  $key: ILogLevel
+  $value: ILogMethod
   opts: ILogwrapOpts
   pipeline: INormalizedPipeline
   level: ILogLevel
@@ -25,14 +28,13 @@ export default class Logwrap implements ILogwrap {
     this.pipeline = opts.pipeline.map(this.constructor.normalizePipe)
     this.level = opts.level
 
+    // TODO use proxy?
+    SEVERITY_ORDER.forEach(level => {
+      this[level] = (...args: IAny): void => this.constructor.perform(this.level, level, this.pipeline, args)
+    })
+
     return this
   }
-
-  trace (...args: IAny[]): void {}
-  debug (...args: IAny[]): void {}
-  info (...args: IAny[]): void {}
-  warn (...args: IAny[]): void {}
-  error (...args: IAny[]): void {}
 
   static perform (treshold: ILogLevel, level: ILogLevel, pipeline: INormalizedPipeline, input: IAny[]): IAny {
     if (!this.validateLevel(treshold, level)) {

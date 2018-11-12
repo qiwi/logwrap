@@ -1,4 +1,5 @@
-import Logwrap from '../src/logwrap'
+import Logwrap, { SEVERITY_ORDER } from '../src/logwrap'
+import { reduce } from '../src/util'
 
 const {
   validateLevel,
@@ -9,6 +10,8 @@ const {
 const perform = Logwrap.perform.bind(Logwrap)
 
 describe('logwrap-core/logwrap', () => {
+  beforeEach(jest.resetAllMocks)
+
   describe('constructor', () => {
     it('returns proper instance', () => {
       const pipeline = [console]
@@ -24,7 +27,41 @@ describe('logwrap-core/logwrap', () => {
   })
 
   describe('proto', () => {
+    describe('exposes ILogger methods', () => {
+      const fakeLogger = reduce(
+        SEVERITY_ORDER,
+        (memo, method) => {
+          memo[method] = jest.fn()
 
+          return memo
+        },
+        {}
+      )
+      const echo = jest.fn(data => data)
+      const logwrap = new Logwrap({
+        level: 'trace',
+        pipeline: [fakeLogger, echo]
+      })
+
+      SEVERITY_ORDER.forEach(method => {
+        it(method, () => {
+          const input = [Math.random()]
+
+          expect(logwrap[method](...input)).toEqual({
+            level: method,
+            input: input,
+            meta: {}
+          })
+
+          expect(fakeLogger[method]).toHaveBeenCalledWith(...input)
+          expect(echo).toHaveBeenCalledWith({
+            input,
+            level: method,
+            meta: {}
+          })
+        })
+      })
+    })
   })
 
   describe('static', () => {
@@ -78,7 +115,7 @@ describe('logwrap-core/logwrap', () => {
     describe('perform', () => {
       const warn = jest.fn()
       const reqularPipe = jest.fn(data => data)
-      const pipeline = [{warn}, reqularPipe].map(normalizePipe)
+      const pipeline = [{ warn }, reqularPipe].map(normalizePipe)
       const input = ['foo', 'bar']
 
       it('does nothing on log level mismatch', () => {
