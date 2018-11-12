@@ -7,3 +7,4 @@
 
 [libs]
 ./flow-typed/
+./packages/logwrap-core/flow-typed/

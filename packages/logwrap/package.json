@@ -30,6 +30,9 @@
     "url": "https://github.com/qiwi/logwrap/issues"
   },
   "homepage": "https://github.com/qiwi/logwrap#readme",
+  "dependencies": {
+    "@qiwi/logwrap-core": "^1.0.0"
+  },
   "devDependencies": {
     "lodash": "^4.17.11"
   }

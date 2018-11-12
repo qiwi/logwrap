@@ -33,7 +33,7 @@ export type ILogwrapOpts = {
   level: ILogLevel
 }
 
-export interface ILogwrap extends ILogger {
+export interface ILogwrap {
   constructor(opts: ILogwrapOpts): ILogwrap,
   opts: ILogwrapOpts,
   pipeline: INormalizedPipeline,
