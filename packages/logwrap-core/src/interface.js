@@ -14,16 +14,28 @@ export type ILogger = {
   error: ILogMethod
 }
 
-export type ILogPipeline = Array<ILogger>
+export type ILogEntryMeta = {
+  [key: string]: IAny
+}
+
+export type ILogEntry = {
+  level: ILogLevel,
+  input: IAny[],
+  meta: ILogEntryMeta
+}
+
+export type IPipe = (entry: ILogEntry) => ?ILogEntry
+export type IPipeline = Array<ILogger | IPipe>
+export type INormalizedPipeline = Array<IPipe>
 
 export type ILogwrapOpts = {
-  pipeline: ILogPipeline,
+  pipeline: IPipeline,
   level: ILogLevel
 }
 
 export interface ILogwrap extends ILogger {
   constructor(opts: ILogwrapOpts): ILogwrap,
   opts: ILogwrapOpts,
-  pipeline: ILogPipeline,
+  pipeline: INormalizedPipeline,
   level: ILogLevel
 }

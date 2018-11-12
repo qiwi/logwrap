@@ -16,7 +16,7 @@ import {Logwrap} from '@qiwi/logwrap-core'
 
 const logwrap = new Logwrap({
   pipeline: [console],
-  level: 'DEBUG'
+  level: 'debug'
 })
 
 export default logwrap
