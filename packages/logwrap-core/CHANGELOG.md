@@ -1,0 +1,13 @@
+# @qiwi/logwrap-core-v1.0.0 (2018-11-12)
+
+
+### Features
+
+* add basic ifaces ([162bd52](https://github.com/qiwi/logwrap/commit/162bd52))
+* add pipeline processor ([9d87912](https://github.com/qiwi/logwrap/commit/9d87912))
+* **logwrap:** add ILogger methods impl ([7a1b80e](https://github.com/qiwi/logwrap/commit/7a1b80e))
+
+
+### Performance Improvements
+
+* tech release ([870386f](https://github.com/qiwi/logwrap/commit/870386f))
