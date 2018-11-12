@@ -1,0 +1,100 @@
+{
+  "private": true,
+  "description": "Bloody enterprise logging tools",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "lerna clean --yes && lerna run clean",
+    "build": "yarn clean && lerna run --stream build",
+    "build_es6": "lerna run --stream build_es6",
+    "build_es5": "lerna run --stream build_es5",
+    "bootstrap": "lerna bootstrap",
+    "test": "npm run flow && npm run flow_coverage && npm run lint && npm run jest",
+    "test_with_report": "npm test && npm run coveralls_push",
+    "coveralls_push": "cat ./coverage/lcov.info | coveralls",
+    "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles --config jest.config.json",
+    "flow": "flow",
+    "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
+    "fetch_libdefs": "flow-typed install lodash@4.17.10",
+    "lint": "standard packages/**/src/**/*.js packages/**/test/**/*.js",
+    "docs": "docma -c ./docma.json",
+    "show_docs": "node scripts/docsapp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qiwi/logwrap.git"
+  },
+  "keywords": [
+    "logwrap",
+    "logbind",
+    "logpipe"
+  ],
+  "author": "Anton Golub <a.golub@qiwi.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@semantic-release/changelog": "^3.0.1",
+    "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/git": "7.0.5",
+    "@semantic-release/github": "5.2.1",
+    "@semantic-release/npm": "5.0.6",
+    "@semantic-release/release-notes-generator": "7.1.4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "coveralls": "^3.0.2",
+    "docma": "^2.1.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "flow-bin": "^0.86.0",
+    "flow-coverage-report": "^0.6.0",
+    "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.5.1",
+    "jest": "^23.6.0",
+    "lerna": "^3.4.3",
+    "semantic-release": "15.10.8",
+    "semantic-release-monorepo": "6.1.1",
+    "semantic-release-monorepo-hooks": "2.6.2",
+    "semantic-release-plugin-decorators": "^2.0.0",
+    "standard": "^12.0.1"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "globals": [
+      "jest",
+      "it",
+      "expect",
+      "describe",
+      "before",
+      "beforeAll",
+      "beforeEach",
+      "afterAll",
+      "after",
+      "afterEach",
+      "xdescribe",
+      "xit"
+    ],
+    "rules": {
+      "use-flow-type": 1
+    },
+    "ignore": [],
+    "settings": {
+      "flowtype": {
+        "onlyFilesWithFlowAnnotation": true
+      }
+    }
+  },
+  "dependencies": {}
+}
