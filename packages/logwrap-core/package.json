@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/logwrap-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Logwrap core assets",
   "main": "dist/es5/index.js",
