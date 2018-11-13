@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/logwrap-mdc",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "Logwrap mdc meta injector",
   "main": "dist/es5/index.js",
