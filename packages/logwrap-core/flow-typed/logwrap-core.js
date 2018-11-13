@@ -1,12 +1,12 @@
 // @flow
 
 declare module "@qiwi/logwrap-core" {
-  declare type IAny = any
+  declare export type IAny = any
 
-  declare type ILogLevel = 'error' | 'warn' | 'info' | 'debug' | 'trace'
+  declare export type ILogLevel = 'error' | 'warn' | 'info' | 'debug' | 'trace'
 
-  declare type ILogMethod = (...args: IAny[]) => void
-  declare type ILogger = {
+  declare export type ILogMethod = (...args: IAny[]) => void
+  declare export type ILogger = {
     [ILogLevel]: ILogMethod,
     trace: ILogMethod,
     debug: ILogMethod,
@@ -15,33 +15,33 @@ declare module "@qiwi/logwrap-core" {
     error: ILogMethod
   }
 
-  declare type ILogEntryMeta = {
+  declare export type ILogEntryMeta = {
     [key: string]: IAny
   }
 
-  declare type ILogEntry = {
+  declare export type ILogEntry = {
     level: ILogLevel,
     input: IAny[],
     meta: ILogEntryMeta
   }
 
-  declare type IPipe = (entry: ILogEntry) => ?ILogEntry
-  declare type IPipeline = Array<ILogger | IPipe>
-  declare type INormalizedPipeline = Array<IPipe>
+  declare export type IPipe = (entry: ILogEntry) => ?ILogEntry
+  declare export type IPipeline = Array<ILogger | IPipe>
+  declare export type INormalizedPipeline = Array<IPipe>
 
-  declare type ILogwrapOpts = {
+  declare export type ILogwrapOpts = {
     pipeline: IPipeline,
     level: ILogLevel
   }
 
-  declare interface ILogwrap {
+  declare export interface ILogwrap {
     constructor(opts: ILogwrapOpts): ILogwrap,
     opts: ILogwrapOpts,
     pipeline: INormalizedPipeline,
     level: ILogLevel
   }
 
-  declare type IUtil = {
+  declare export type IUtil = {
     reduce: $PropertyType<$Exports<"lodash-es">, "reduce">;
   }
 

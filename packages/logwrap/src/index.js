@@ -1,10 +1,12 @@
 // @flow
 
 import { Logwrap, util } from '@qiwi/logwrap-core'
+import mdc from '@qiwi/logwrap-mdc'
 
 export {
   Logwrap,
-  util
+  util,
+  mdc
 }
 
 export default Logwrap

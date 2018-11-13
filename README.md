@@ -24,18 +24,18 @@ npm i @qiwi/logwrap
 ```javascript
 // logger.js 
 
-import {Logwrap, Masker, Mdc} from '@qiwi/logwrap'
+import {Logwrap, masker as maskerFactory, mdc as mdcFactory} from '@qiwi/logwrap'
 import winston from 'winston'
 import DailyRotateFile  from 'winston-daily-rotate-file'
 
 const { createLogger, transports: {Console}, config: {colorize}} = winston
 winston.transports.DailyRotateFile = DailyRotateFile
 
+const mdc =  mdcFactory()
+const masker =  maskerFactory()
 const logger = createLogger()
 logger.configure({...})
 
-const masker = new Masker()
-const mdc = new Mdc()
 const logwrap = new Logwrap({
   pipeline: [mdc, masker, logger],
   level: 'DEBUG'

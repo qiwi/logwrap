@@ -39,3 +39,8 @@ export interface ILogwrap {
   pipeline: INormalizedPipeline,
   level: ILogLevel
 }
+
+export type IPipeFactoryOpts = {
+  [key: string]: IAny
+}
+export type IPipeFactory = (opts?: IPipeFactoryOpts) => IPipe

@@ -1,13 +1,14 @@
 {
-  "name": "@qiwi/logwrap",
-  "version": "1.1.0",
+  "name": "@qiwi/logwrap-mdc",
+  "version": "1.0.0",
   "private": false,
-  "description": "Logwrap facade",
+  "description": "Logwrap mdc meta injector",
   "main": "dist/es5/index.js",
   "files": [
     "README.md",
     "CHANGELOG.md",
-    "dist/"
+    "dist",
+    "flow-typed"
   ],
   "scripts": {
     "build_es6": "flow-remove-types src/ --out-dir dist/es6/",
@@ -32,7 +33,7 @@
   "homepage": "https://github.com/qiwi/logwrap#readme",
   "dependencies": {
     "@qiwi/logwrap-core": "^1.0.0",
-    "@qiwi/logwrap-mdc": "^1.0.0"
+    "cls-hooked":"^4.2.2"
   },
   "devDependencies": {
     "lodash": "^4.17.11"
