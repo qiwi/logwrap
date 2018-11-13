@@ -5,7 +5,7 @@ import type { INamespace } from 'cls-hooked'
 import type { IAny } from '../../logwrap-core/src/interface'
 
 export const DEFAULT_SPACE_ID = 'mdc'
-export const DEFAULT_NS = createNamespace(DEFAULT_SPACE_ID)
+export const DEFAULT_NS = getNamespace(DEFAULT_SPACE_ID) || createNamespace(DEFAULT_SPACE_ID)
 export const TRACE_KEY = 'trace'
 
 export type IOpts = {
