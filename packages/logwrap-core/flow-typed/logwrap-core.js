@@ -47,6 +47,12 @@ declare module "@qiwi/logwrap-core" {
 
   declare export var util: IUtil
 
+  declare export var ERROR: 'error'
+  declare export var WARN: 'warn'
+  declare export var INFO: 'info'
+  declare export var DEBUG: 'debug'
+  declare export var TRACE: 'trace'
+
   declare export class Logwrap {
     $key: ILogLevel,
     $value: ILogMethod,
