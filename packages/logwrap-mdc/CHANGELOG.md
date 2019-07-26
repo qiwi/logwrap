@@ -1,3 +1,10 @@
+# [@qiwi/logwrap-mdc-v1.3.1](https://github.com/qiwi/logwrap/compare/v1.3.0...v1.3.1) (2019-07-26)
+
+
+### Bug Fixes
+
+* **package:** up deps, fix vulnerabilities ([534a0ee](https://github.com/qiwi/logwrap/commit/534a0ee))
+
 # [@qiwi/logwrap-mdc-v1.2.1](https://github.com/qiwi/logwrap/compare/v1.2.0...v1.2.1) (2018-11-13)
 
 
