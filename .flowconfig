@@ -9,3 +9,6 @@
 ./flow-typed/
 ./packages/logwrap-core/flow-typed/
 ./packages/logwrap-mdc/flow-typed/
+
+[lints]
+deprecated-utility=off

@@ -19,10 +19,15 @@ export const SEVERITY_ORDER = ['error', 'warn', 'info', 'debug', 'trace']
 
 export default class Logwrap implements ILogwrap {
   $key: ILogLevel
+
   $value: ILogMethod
+
   opts: ILogwrapOpts
+
   pipeline: INormalizedPipeline
+
   level: ILogLevel
+
   constructor (opts: ILogwrapOpts): ILogwrap {
     this.opts = opts
     this.pipeline = opts.pipeline.map(this.constructor.normalizePipe)

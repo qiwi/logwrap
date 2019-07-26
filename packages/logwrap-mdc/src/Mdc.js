@@ -14,6 +14,7 @@ export type IOpts = {
 
 export default class Mdc {
   ns: INamespace
+
   constructor ({ ns }: IOpts): Mdc {
     this.ns = this.constructor.getNamespace(ns)
 
