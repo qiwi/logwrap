@@ -1,4 +1,4 @@
-import Mdc, { DEFAULT_NS, DEFAULT_SPACE_ID, TRACE_KEY } from '../src/Mdc'
+import Mdc, { DEFAULT_NS, DEFAULT_SPACE_ID, TRACE_KEY } from '../../main/js/Mdc'
 
 describe('logwrap-mdc/Mdc', () => {
   const span_id = '1234567890abcdef'  // eslint-disable-line

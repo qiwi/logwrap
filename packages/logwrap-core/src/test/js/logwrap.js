@@ -1,5 +1,5 @@
-import Logwrap, { SEVERITY_ORDER } from '../src/logwrap'
-import { reduce } from '../src/util'
+import Logwrap, { SEVERITY_ORDER } from '../../main/js/logwrap'
+import { reduce } from '../../main/js/util'
 
 const {
   validateLevel,

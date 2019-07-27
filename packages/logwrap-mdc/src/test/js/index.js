@@ -1,5 +1,5 @@
-import factory from '../src'
-import { DEFAULT_NS as ns, TRACE_KEY } from '../src/Mdc'
+import factory from '../../main/js'
+import { DEFAULT_NS as ns, TRACE_KEY } from '../../main/js/Mdc'
 
 describe('logwrap-mdc/index', () => {
   it('factory returns a pipe', () => {

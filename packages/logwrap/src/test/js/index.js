@@ -6,7 +6,7 @@ import index, {
   INFO,
   DEBUG,
   TRACE
-} from '../src'
+} from '../../main/js'
 
 describe('logwrap index', () => {
   it('properly exposes facade', () => {

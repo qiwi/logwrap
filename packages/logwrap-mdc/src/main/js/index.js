@@ -1,7 +1,7 @@
 // @flow
 
 import Mdc from './Mdc'
-import type { IPipeFactory, ILogEntry } from '../../logwrap-core/src/interface'
+import type { IPipeFactory, ILogEntry } from '../../../../logwrap-core/src/main/js/interface'
 import type { IMdcOpts } from './interface'
 
 export default ((opts?: IMdcOpts) => {

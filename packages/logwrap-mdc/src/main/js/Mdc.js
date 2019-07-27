@@ -2,7 +2,7 @@
 
 import { createNamespace, getNamespace } from 'cls-hooked'
 import type { INamespace } from 'cls-hooked'
-import type { IAny } from '../../logwrap-core/src/interface'
+import type { IAny } from '../../../../logwrap-core/src/main/js/interface'
 
 export const DEFAULT_SPACE_ID = 'mdc'
 export const DEFAULT_NS = getNamespace(DEFAULT_SPACE_ID) || createNamespace(DEFAULT_SPACE_ID)
