@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/qiwi/logwrap#readme",
   "dependencies": {
-    "lodash-es": "^4.17.11"
+    "lodash-es": "^4.17.15"
   },
   "devDependencies": {}
 }

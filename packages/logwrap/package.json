@@ -31,10 +31,10 @@
   },
   "homepage": "https://github.com/qiwi/logwrap#readme",
   "dependencies": {
-    "@qiwi/logwrap-core": "^1.0.0",
-    "@qiwi/logwrap-mdc": "^1.0.0"
+    "@qiwi/logwrap-core": "^1.3.1",
+    "@qiwi/logwrap-mdc": "^1.3.1"
   },
   "devDependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.15"
   }
 }
