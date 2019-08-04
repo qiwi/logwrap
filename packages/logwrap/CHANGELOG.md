@@ -1,3 +1,10 @@
+# [@qiwi/logwrap-v1.4.0](https://github.com/qiwi/logwrap/compare/v1.3.2...v1.4.0) (2019-08-04)
+
+
+### Features
+
+* **facade:** add TS libdefs ([7f42d67](https://github.com/qiwi/logwrap/commit/7f42d67)), closes [#12](https://github.com/qiwi/logwrap/issues/12)
+
 # [@qiwi/logwrap-v1.3.2](https://github.com/qiwi/logwrap/compare/v1.3.1...v1.3.2) (2019-07-27)
 
 
