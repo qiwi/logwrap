@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/logwrap",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "private": false,
   "description": "Logwrap facade",
   "main": "target/es5/index.js",

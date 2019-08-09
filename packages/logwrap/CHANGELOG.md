@@ -1,3 +1,10 @@
+# [@qiwi/logwrap-v1.4.1](https://github.com/qiwi/logwrap/compare/v1.4.0...v1.4.1) (2019-08-09)
+
+
+### Bug Fixes
+
+* **typings:** correct module path ([d2dd472](https://github.com/qiwi/logwrap/commit/d2dd472))
+
 # [@qiwi/logwrap-v1.4.0](https://github.com/qiwi/logwrap/compare/v1.3.2...v1.4.0) (2019-08-04)
 
 
