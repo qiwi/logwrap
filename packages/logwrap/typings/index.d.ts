@@ -1,4 +1,4 @@
-declare module '@qiwi/logwrap/es5/index' {
+declare module '@qiwi/logwrap/target/es5/index' {
   import { ILogger, ILoggerMethod } from '@qiwi/substrate'
 
   type IAny = any
@@ -46,5 +46,5 @@ declare module '@qiwi/logwrap/es5/index' {
 }
 
 declare module '@qiwi/logwrap' {
-  export * from '@qiwi/logwrap/es5/index'
+  export * from '@qiwi/logwrap/target/es5/index'
 }
