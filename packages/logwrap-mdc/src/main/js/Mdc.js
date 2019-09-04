@@ -9,7 +9,7 @@ export const DEFAULT_NS = getNamespace(DEFAULT_SPACE_ID) || createNamespace(DEFA
 export const TRACE_KEY = 'trace'
 
 export type IOpts = {
-  ns?: string
+  ns?: string | INamespace
 }
 
 export default class Mdc {

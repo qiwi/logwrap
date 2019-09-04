@@ -28,20 +28,35 @@ export default class Logwrap implements ILogwrap {
 
   level: ILogLevel
 
+  trace: ILogMethod
+
+  debug: ILogMethod
+
+  info: ILogMethod
+
+  warn: ILogMethod
+
+  error: ILogMethod
+
   constructor (opts: ILogwrapOpts): ILogwrap {
     this.opts = opts
     this.pipeline = opts.pipeline.map(this.constructor.normalizePipe)
     this.level = opts.level
 
-    // TODO use proxy?
-    SEVERITY_ORDER.forEach(level => {
-      this[level] = (...args: IAny): void => this.constructor.perform(this.level, level, this.pipeline, args)
-    })
+    this.error = this.constructor.initLogMethod('error', this.level, this.pipeline)
+    this.warn = this.constructor.initLogMethod('warn', this.level, this.pipeline)
+    this.debug = this.constructor.initLogMethod('debug', this.level, this.pipeline)
+    this.info = this.constructor.initLogMethod('info', this.level, this.pipeline)
+    this.trace = this.constructor.initLogMethod('trace', this.level, this.pipeline)
 
-    // NOTE console.log legacy
-    this.log = this.info
+    // $FlowFixMe
+    this.log = this.info // NOTE console.log legacy
 
     return this
+  }
+
+  static initLogMethod (method: ILogLevel, level: ILogLevel, pipeline: INormalizedPipeline): ILogMethod {
+    return (...args: IAny): void => this.perform(level, method, pipeline, args)
   }
 
   static perform (treshold: ILogLevel, level: ILogLevel, pipeline: INormalizedPipeline, input: IAny[]): IAny {
@@ -64,6 +79,7 @@ export default class Logwrap implements ILogwrap {
         return pipe
 
       case 'object':
+        // $FlowFixMe
         return (entry: ILogEntry) => pipe[entry.level](...entry.input)
 
       default:
