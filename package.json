@@ -16,7 +16,7 @@
     "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles --config jest.config.json",
     "flow": "flow",
     "flow:coverage": "flow-coverage-report -i 'packages/**/src/main/**/*.js' -t html -t json -t text --threshold 90",
-    "fetch_libdefs": "flow-typed install lodash-es@4.17.10",
+    "flow:fetch": "flow-typed install lodash-es@4.17.10",
     "lint": "standard packages/**/src/**/*.js packages/**/test/**/*.js",
     "lint:fix": "yarn lint --fix",
     "docs": "docma -c ./docma.json",

@@ -22,9 +22,9 @@ after_script:
 install:
   - yarn cache clean
   - sh scripts/install.sh
-  - yarn run fetch_libdefs
-  - yarn run bootstrap
-  - yarn run build
+  - yarn flow:fetch
+  - yarn bootstrap
+  - yarn build
 
 script:
   - yarn run test:report
