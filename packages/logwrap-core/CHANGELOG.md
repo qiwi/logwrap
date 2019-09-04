@@ -1,3 +1,10 @@
+# [@qiwi/logwrap-core-v1.4.2](https://github.com/qiwi/logwrap/compare/v1.4.1...v1.4.2) (2019-09-04)
+
+
+### Bug Fixes
+
+* **core:** add `log` alias for `info` level ([6c0b593](https://github.com/qiwi/logwrap/commit/6c0b593)), closes [#14](https://github.com/qiwi/logwrap/issues/14)
+
 # [@qiwi/logwrap-core-v1.3.2](https://github.com/qiwi/logwrap/compare/v1.3.1...v1.3.2) (2019-07-27)
 
 
