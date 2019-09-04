@@ -38,6 +38,9 @@ export default class Logwrap implements ILogwrap {
       this[level] = (...args: IAny): void => this.constructor.perform(this.level, level, this.pipeline, args)
     })
 
+    // NOTE console.log legacy
+    this.log = this.info
+
     return this
   }
 

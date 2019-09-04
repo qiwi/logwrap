@@ -61,6 +61,15 @@ describe('logwrap-core/logwrap', () => {
           })
         })
       })
+
+      it('adds `log` alias for `info` method', () => {
+        const input = 'foobar'
+
+        logwrap.log(input)
+
+        expect(logwrap.log).toBe(logwrap.info)
+        expect(fakeLogger.info).toHaveBeenCalledWith(input)
+      })
     })
   })
 
