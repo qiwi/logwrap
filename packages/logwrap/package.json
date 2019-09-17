@@ -37,7 +37,7 @@
   "homepage": "https://github.com/qiwi/logwrap#readme",
   "dependencies": {
     "@qiwi/substrate": "^1.11.2",
-    "@qiwi/logwrap-core": "^1.3.2",
+    "@qiwi/logwrap-core": "^1.4.2",
     "@qiwi/logwrap-mdc": "^1.4.0"
   },
   "devDependencies": {
