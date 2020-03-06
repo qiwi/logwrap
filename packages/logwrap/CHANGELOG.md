@@ -1,3 +1,10 @@
+# [@qiwi/logwrap-v1.5.1](https://github.com/qiwi/logwrap/compare/v1.5.0...v1.5.1) (2020-03-06)
+
+
+### Performance Improvements
+
+* up deps & repack ([8094993](https://github.com/qiwi/logwrap/commit/8094993))
+
 # [@qiwi/logwrap-v1.4.1](https://github.com/qiwi/logwrap/compare/v1.4.0...v1.4.1) (2019-08-09)
 
 
