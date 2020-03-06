@@ -56,15 +56,16 @@ export default class Logwrap implements ILogwrap {
   }
 
   static initLogMethod (method: ILogLevel, level: ILogLevel, pipeline: INormalizedPipeline): ILogMethod {
-    return (...args: IAny): void => this.perform(level, method, pipeline, args)
+    return (...args: IAny): void => {
+      const entry = this.normalizeEntry(method, args, {})
+      return this.perform(level, pipeline, entry)
+    }
   }
 
-  static perform (treshold: ILogLevel, level: ILogLevel, pipeline: INormalizedPipeline, input: IAny[]): IAny {
-    if (!this.validateLevel(treshold, level)) {
+  static perform (treshold: ILogLevel, pipeline: INormalizedPipeline, entry: ILogEntry): IAny {
+    if (!this.validateLevel(treshold, entry.level)) {
       return
     }
-
-    const entry = this.normalizeEntry(level, input, {})
 
     return reduce(
       pipeline,

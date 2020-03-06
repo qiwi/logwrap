@@ -128,11 +128,15 @@ describe('logwrap-core/logwrap', () => {
       const input = ['foo', 'bar']
 
       it('does nothing on log level mismatch', () => {
-        expect(perform('error', 'warn')).toBeUndefined()
+        const entry = normalizeEntry('warn', input, {})
+
+        expect(perform('error', pipeline, entry)).toBeUndefined()
       })
 
       it('processes data though the pipeline', () => {
-        expect(perform('debug', 'warn', pipeline, input)).toEqual({
+        const entry = normalizeEntry('warn', input, {})
+
+        expect(perform('debug', pipeline, entry)).toEqual({
           level: 'warn',
           input,
           meta: {}
