@@ -36,8 +36,8 @@
   },
   "homepage": "https://github.com/qiwi/logwrap#readme",
   "dependencies": {
-    "@qiwi/substrate": "^1.11.2",
-    "@qiwi/logwrap-core": "^1.4.2",
+    "@qiwi/substrate": "^1.18.14",
+    "@qiwi/logwrap-core": "^1.5.0",
     "@qiwi/logwrap-mdc": "^1.4.0"
   },
   "devDependencies": {
