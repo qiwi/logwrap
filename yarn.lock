@@ -1814,13 +1814,6 @@
     once "^1.4.0"
     universal-user-agent "^4.0.0"
 
-"@qiwi/logwrap-core@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@qiwi/logwrap-core/-/logwrap-core-1.4.2.tgz#90d819bbb98758687ce2771da9440c032a2b0964"
-  integrity sha512-ZLThJ4VKacxUlitxF6+Ic0fDKj3mlX6P8uOknaIzhy4vccBzbkl9/hq71dMR6wd+36DDMYWbT8TKxVDlVKlZug==
-  dependencies:
-    lodash-es "^4.17.15"
-
 "@qiwi/substrate-types@^1.0.0":
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.16.0.tgz#3f7e54a8e12bd4f8a7aefd9b563842f38adf0ad1"
