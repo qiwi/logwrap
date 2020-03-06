@@ -1,3 +1,10 @@
+# [@qiwi/logwrap-core-v1.5.0](https://github.com/qiwi/logwrap/compare/v1.4.2...v1.5.0) (2020-03-06)
+
+
+### Features
+
+* **core:** let #perform to process log entry instead of input ([317927d](https://github.com/qiwi/logwrap/commit/317927d))
+
 # [@qiwi/logwrap-core-v1.4.2](https://github.com/qiwi/logwrap/compare/v1.4.1...v1.4.2) (2019-09-04)
 
 
