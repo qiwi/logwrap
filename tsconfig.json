@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "moduleResolution": "node",
+    "paths": {
+      "@logwrap": ["./logwrap/src/main/ts"],
+      "@logwrap-core": ["./logwrap-core/src/main/ts"],
+      "@logwrap-mdc": ["./logwrap-mdc/src/main/ts"]
+    }
+  }
+}

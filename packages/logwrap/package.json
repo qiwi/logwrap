@@ -12,12 +12,29 @@
     "README.md",
     "CHANGELOG.md",
     "target",
-    "typings"
+    "typings",
+    "flow-typed"
   ],
   "scripts": {
-    "build:es6": "flow-remove-types src/main/js --out-dir target/es6/",
-    "build:es5": "BABEL_ENV=production babel src/main/js --out-dir target/es5/",
-    "build": "rm -rf target && npm run build:es6 && npm run build:es5"
+    "test": "yarn lint && yarn test:spec",
+    "test:gen": "yarn jest --updateSnapshot",
+    "test:spec": "yarn jest",
+    "jest": "jest -w=1 --config=jest.config.json",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "clean": "rimraf target typings buildcache",
+    "build": "yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
+    "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
+    "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
+    "build:ts": "cp -r src/main/ts/ target/ts/",
+    "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
+    "build:libdef": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/logwrap/target/es5 --name @qiwi/logwrap --main @qiwi/logwrap/target/es5/index --moduleResolution node && libdeffix --dts=./typings/index.d.ts --prefix=@qiwi/logwrap/target/es5 && flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
+    "test:report": "yarn test && yarn push:report",
+    "push:report": "yarn coveralls:push",
+    "coveralls:push": "cat ./coverage/lcov.info | coveralls",
+    "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0",
+    "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
+    "postupdate": "yarn && yarn build && yarn test"
   },
   "repository": {
     "type": "git",
@@ -41,6 +58,34 @@
     "@qiwi/logwrap-mdc": "^1.4.0"
   },
   "devDependencies": {
-    "lodash": "^4.17.15"
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.15.9",
+    "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.5",
+    "@semantic-release/npm": "^7.0.5",
+    "@types/jest": "^25.1.4",
+    "@types/jest-json-schema": "^2.1.1",
+    "@types/supertest": "^2.0.8",
+    "coveralls": "^3.0.11",
+    "dts-generator": "^3.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "esm": "^3.2.25",
+    "flowgen": "1.10.0",
+    "jest": "^25.2.0",
+    "lodash": "^4.17.15",
+    "microbundle": "^0.12.0-next.3",
+    "replace-in-file": "^5.0.2",
+    "semantic-release": "^17.0.4",
+    "supertest": "^4.0.2",
+    "terser": "^4.6.7",
+    "ts-jest": "^25.2.1",
+    "eslint": "^6.8.0",
+    "eslint-config-qiwi": "^1.3.3",
+    "typedoc": "^0.17.3",
+    "typedoc-plugin-external-module-name": "^3.0.0",
+    "typescript": "^3.8.3",
+    "typescript-eslint-parser": "^22.0.0",
+    "rimraf": "^3.0.2",
+    "@swissquote/crafty-preset-jest": "^1.10.0"
   }
 }
