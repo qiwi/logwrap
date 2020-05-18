@@ -1,6 +1,5 @@
-// @ts-ignore
-import type { INamespace } from 'cls-hooked'
+import { Namespace } from 'cls-hooked'
 
 export type IMdcOpts = {
-  ns?: INamespace | string
+  ns?: Namespace | string
 }

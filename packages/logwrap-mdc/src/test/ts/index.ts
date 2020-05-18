@@ -1,5 +1,5 @@
-import factory from '../../main/js'
-import { DEFAULT_NS as ns, TRACE_KEY } from '../../main/js/Mdc'
+import factory from '../../main/ts'
+import { DEFAULT_NS as ns, TRACE_KEY } from '../../main/ts/Mdc'
 
 describe('logwrap-mdc/index', () => {
   it('factory returns a pipe', () => {
@@ -16,14 +16,18 @@ describe('logwrap-mdc/index', () => {
     const entry = { input, meta, level }
     const setTrace = () => ns.set(TRACE_KEY, trace)
     const getTrace = () => {
+      // @ts-ignore
       expect(entry.meta.trace).toEqual(trace)
       done()
     }
 
+    // @ts-ignore
     pipe(entry)
 
+    // @ts-ignore
     expect(entry.meta.trace).toBeUndefined()
     ns.run(() => setTrace() && getTrace())
+    // @ts-ignore
     expect(entry.meta.trace).toBeUndefined()
   })
 })

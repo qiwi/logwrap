@@ -31,6 +31,7 @@ describe('logwrap-core/logwrap', () => {
 
   describe('proto', () => {
     describe('exposes ILogger methods', () => {
+      const acc: Record<string, any> = {}
       const fakeLogger = reduce(
         SEVERITY_ORDER,
         (memo, method) => {
@@ -38,7 +39,7 @@ describe('logwrap-core/logwrap', () => {
 
           return memo
         },
-        {},
+        acc,
       )
       const echo = jest.fn(data => data)
       const logwrap = new Logwrap({
@@ -51,6 +52,7 @@ describe('logwrap-core/logwrap', () => {
         it(method, () => {
           const input = [Math.random()]
 
+          // @ts-ignore
           expect(logwrap[method](...input)).toEqual({
             level: method,
             input: input,

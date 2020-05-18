@@ -1,4 +1,4 @@
-import Mdc, { DEFAULT_NS, DEFAULT_SPACE_ID, TRACE_KEY } from '../../main/js/Mdc'
+import Mdc, { DEFAULT_NS, DEFAULT_SPACE_ID, TRACE_KEY } from '../../main/ts/Mdc'
 
 describe('logwrap-mdc/Mdc', () => {
   const span_id = '1234567890abcdef'  // eslint-disable-line
@@ -7,13 +7,15 @@ describe('logwrap-mdc/Mdc', () => {
   const bindEmitter = jest.fn()
   const get = jest.fn()
   const set = jest.fn()
-  const run = cb => cb()
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  const run = (cb: Function) => cb()
   const ns = {
     bindEmitter,
     get,
     set,
     run,
   }
+  // @ts-ignore
   const mdc = new Mdc({ ns })
 
   beforeEach(() => jest.resetAllMocks())
@@ -43,6 +45,7 @@ describe('logwrap-mdc/Mdc', () => {
   describe('static', () => {
     it('`getNamespace` returns CLS namespace', () => {
       expect(Mdc.getNamespace(DEFAULT_SPACE_ID)).toBe(DEFAULT_NS)
+      // @ts-ignore
       expect(Mdc.getNamespace()).toBe(DEFAULT_NS)
       expect(Mdc.getNamespace('foo')).not.toBe(DEFAULT_NS)
       expect(Mdc.getNamespace({})).toEqual({})

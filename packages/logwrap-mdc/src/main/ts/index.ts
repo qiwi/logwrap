@@ -1,6 +1,6 @@
 import Mdc from './Mdc'
-import type { ILogEntry } from '../../../../logwrap-core/src/main/ts/interface'
-import type { IMdcOpts } from './interface'
+import { ILogEntry } from '@qiwi/logwrap-core/target/es5/interface'
+import { IMdcOpts } from './interface'
 
 export default (opts?: IMdcOpts) => {
   const _opts = opts || {}
