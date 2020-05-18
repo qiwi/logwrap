@@ -9,7 +9,7 @@
     "build": "yarn clean && lerna run build --stream --concurrency 2",
     "bootstrap": "lerna bootstrap",
     "jest": "jest",
-    "test:report": "yarn test && yarn codeclimate:push && yarn coveralls:push",
+    "test:report": "yarn test && yarn coveralls:push",
     "test": "lerna run test --concurrency 1 --stream --no-prefix && yarn coverage:merge",
     "coverage:merge": "node scripts/js/coverage-merge.js",
     "codeclimate:push": "codeclimate-test-reporter < ./coverage/lcov.info",
@@ -56,5 +56,13 @@
     "yargs": "^15.3.1",
     "rimraf": "^3.0.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "jest": {
+    "collectCoverage": true,
+    "projects": [
+      "<rootDir>/packages/logwrap/jest.config.json",
+      "<rootDir>/packages/logwrap-core/jest.config.json",
+      "<rootDir>/packages/logwrap-mdc/jest.config.json"
+    ]
+  }
 }

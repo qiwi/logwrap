@@ -8,6 +8,7 @@
     "README.md",
     "CHANGELOG.md",
     "target",
+    "typings",
     "flow-typed"
   ],
   "scripts": {

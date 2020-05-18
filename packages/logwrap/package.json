@@ -12,7 +12,8 @@
     "README.md",
     "CHANGELOG.md",
     "target",
-    "typings"
+    "typings",
+    "flow-typed"
   ],
   "scripts": {
     "test": "yarn lint && yarn test:spec",
