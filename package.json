@@ -30,6 +30,8 @@
   "author": "Anton Golub <a.golub@qiwi.com>",
   "license": "MIT",
   "devDependencies": {
+    "@qiwi/libdefkit": "^1.0.2",
+    "@qiwi/multi-semantic-release": "^2.4.3",
     "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "9.0.0",
@@ -46,15 +48,14 @@
     "jest": "^25.2.0",
     "lerna": "^3.20.2",
     "lodash": "^4.17.15",
-    "@qiwi/multi-semantic-release": "^2.4.3",
     "replace-in-file": "^5.0.2",
+    "rimraf": "^3.0.2",
     "semantic-release": "17.0.4",
     "snazzy": "^8.0.0",
     "ts-jest": "^25.2.1",
     "typedoc": "^0.17.3",
     "typescript": "^3.8.3",
-    "yargs": "^15.3.1",
-    "rimraf": "^3.0.2"
+    "yargs": "^15.3.1"
   },
   "dependencies": {},
   "jest": {
