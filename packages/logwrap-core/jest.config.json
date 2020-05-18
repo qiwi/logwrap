@@ -1,19 +1,20 @@
 {
-  "preset": "ts-jest",
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.jsx?$": "@swissquote/crafty-preset-jest/src/esm-transformer"
+  },
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
-    "types.ts"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/main/ts/**/*.ts"
+    "<rootDir>/src/main/**/*.(j|t)s"
   ],
   "testMatch": [
-    "<rootDir>/src/test/ts/**/*.ts",
-    "<rootDir>/src/test/js/**/*.js"
+    "<rootDir>/src/test/js/*.js",
+    "<rootDir>/src/test/ts/*.ts"
   ],
   "testPathIgnorePatterns": [
-    "/node_modules/",
-    "<rootDir>/src/test/stub"
+    "/node_modules/"
   ],
   "moduleFileExtensions": [
     "ts",
@@ -23,12 +24,11 @@
     "json",
     "node"
   ],
-  "transform": {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  },
+  "preset": "ts-jest",
   "globals": {
     "ts-jest": {
       "tsConfig": "tsconfig.test.json"
     }
   }
+
 }
